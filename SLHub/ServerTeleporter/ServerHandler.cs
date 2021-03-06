@@ -17,7 +17,7 @@ namespace SLHub.ServerTeleporter
             Reload();
 
             Server.Get.Events.Round.WaitingForPlayersEvent += Waiting;
-
+            Server.Get.Events.Round.RoundRestartEvent += Restart;
         }
 
         public ServerConfig Config { get; private set; }
@@ -25,6 +25,8 @@ namespace SLHub.ServerTeleporter
         public PluginClass Plugin { get; }
 
         public void Reload() => Config = Plugin.SYML.GetOrSetDefault("Servers", new ServerConfig());
+
+        private void Restart() => Servers.Clear();
 
         private void Waiting()
         {
