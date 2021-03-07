@@ -16,4 +16,4 @@ SlHub is a Plugin that gives Hosters all the Tools that they need in order to cr
 ***
 
 ## Doucmentation
-Everything else can you find in the [Wiki]()
+Everything else can you find in the [Wiki](https://github.com/SynapseSL/SLHub/wiki)
