@@ -7,7 +7,7 @@ namespace SLHub.ServerTeleporter
 {
     public class ServerConfig : IConfigSection
     {
-        [Description("If you want to display the Players on the Server Read the Doucmentation (insert link here)")]
+        [Description("If you want to display the Players on the Server Read the Doucmentation https://github.com/SynapseSL/SLHub/wiki")]
         public Api ApiType { get; set; } = Api.None;
 
         [Description("This belongs to ApiType don't touch it if you dont want to display the amount of players on a server")]

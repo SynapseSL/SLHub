@@ -1,16 +1,19 @@
 ﻿using Synapse.Config;
 using SLHub.Teleporter;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace PvPArena
 {
     public class HubAddonConfig : IConfigSection
     {
+        [Description("A List of all Rooms in which Item Usage is allowed")]
         public List<RoomInformation.RoomType> PvpRooms { get; set; } = new List<RoomInformation.RoomType>
         {
             RoomInformation.RoomType.SURFACE
         };
 
+        [Description("A list of Dummies that gives the players a Item and then tp them")]
         public List<SerializedItemDummy> ItemHolders { get; set; } = new List<SerializedItemDummy>
         {
             new SerializedItemDummy

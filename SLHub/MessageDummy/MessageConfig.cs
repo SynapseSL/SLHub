@@ -7,6 +7,7 @@ namespace SLHub.MessageDummy
 {
     public class MessageConfig : IConfigSection
     {
+        [Description("A list of Dummines that are doing nothing or showing a Message when you walk into them")]
         public List<SerializedMessageDummy> MessageDummies { get; set; } = new List<SerializedMessageDummy>
         {
             new SerializedMessageDummy

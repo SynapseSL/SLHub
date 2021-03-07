@@ -7,6 +7,7 @@ namespace SLHub.Teleporter
 {
     public class TeleporterConfig : IConfigSection
     {
+        [Description("A list of Dummies that tp a player to a different Location when he walks into them")]
         public List<SerializedTeleporter> Teleporters { get; set; } = new List<SerializedTeleporter>
         {
             new SerializedTeleporter
