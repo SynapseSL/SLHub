@@ -22,10 +22,18 @@ namespace SLHub
 
             Server.Get.Events.Round.WaitingForPlayersEvent += Waiting;
             Server.Get.Events.Player.PlayerDropItemEvent += Drop;
-            Server.Get.Events.Player.PlayerItemUseEvent += UseItem;
             Server.Get.Events.Round.RoundRestartEvent += Restart;
             Server.Get.Events.Player.PlayerLeaveEvent += Leave;
             Server.Get.Events.Player.PlayerDeathEvent += Death;
+            Server.Get.Events.Player.PlayerEscapesEvent += Escape;
+            Server.Get.Events.Player.PlayerSetClassEvent += SetClass;
+            Server.Get.Events.Player.PlayerDropAmmoEvent += DropAmmo;
+        }
+
+        private void SetClass(Synapse.Api.Events.SynapseEventArguments.PlayerSetClassEventArgs ev)
+        {
+            if (!Config.SpawnWithItems)
+                ev.Items.Clear();
         }
 
         public void Reload() => Config = Plugin.SYML.GetOrSetDefault("LobbyConfigs", new CustomPluginConfig());
@@ -43,6 +51,12 @@ namespace SLHub
                     foreach (var rag in Map.Get.Ragdolls.ToArray())
                         rag.Destroy();
             }
+        }
+
+        private void Escape(Synapse.Api.Events.SynapseEventArguments.PlayerEscapeEventArgs ev)
+        {
+            if (!Config.AllowEscape)
+                ev.Allow = false;
         }
 
         private void Waiting()
@@ -75,9 +89,9 @@ namespace SLHub
             }
         }
 
-        private void UseItem(Synapse.Api.Events.SynapseEventArguments.PlayerItemInteractEventArgs ev)
+        private void DropAmmo(Synapse.Api.Events.SynapseEventArguments.PlayerDropAmmoEventArgs ev)
         {
-            if (!Config.AllowItemUsage)
+            if (!Config.AllowDrop)
                 ev.Allow = false;
         }
 

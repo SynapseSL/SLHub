@@ -8,23 +8,37 @@ namespace PvPArena
         [AddonConfig("PvPArena")]
         public HubAddonConfig Config { get; set; }
 
+        public void Reload() { }
+
         public void Load()
         {
-            Server.Get.Events.Player.PlayerItemUseEvent += ItemUse;
+            Server.Get.Events.Player.PlayerShootEvent += Shoot;
+            Server.Get.Events.Player.PlayerThrowGrenadeEvent += Throw;
+            Server.Get.Events.Player.PlayerUseMicroEvent += Micro;
+        }
+
+        private void Micro(Synapse.Api.Events.SynapseEventArguments.PlayerUseMicroEventArgs ev)
+        {
+            if (!Config.PvpRooms.Contains(ev.Player.Room.RoomType))
+                ev.State = MicroHID.MicroHidState.Idle;
+        }
+
+        private void Throw(Synapse.Api.Events.SynapseEventArguments.PlayerThrowGrenadeEventArgs ev)
+        {
+            if (!Config.PvpRooms.Contains(ev.Player.Room.RoomType))
+                ev.Allow = false;
+        }
+
+        private void Shoot(Synapse.Api.Events.SynapseEventArguments.PlayerShootEventArgs ev)
+        {
+            if (!Config.PvpRooms.Contains(ev.Player.Room.RoomType))
+                ev.Allow = false;
         }
 
         public void NewRound()
         {
             foreach (var holder in Config.ItemHolders)
                 new ItemHolder(holder.Item, holder.Teleporter);
-        }
-
-        public void Reload() { }
-
-        private void ItemUse(Synapse.Api.Events.SynapseEventArguments.PlayerItemInteractEventArgs ev)
-        {
-            if (Config.PvpRooms.Contains(ev.Player.Room.RoomType))
-                ev.Allow = true;
         }
     }
 }

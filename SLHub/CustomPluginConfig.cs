@@ -19,8 +19,11 @@ namespace SLHub
         [Description("If players can drop Items")]
         public bool AllowDrop { get; set; } = false;
 
-        [Description("If players can shoot other players")]
-        public bool AllowItemUsage { get; set; } = false;
+        [Description("If Players can Escape")]
+        public bool AllowEscape { get; set; } = false;
+
+        [Description("If Roles should spawn with they Items")]
+        public bool SpawnWithItems { get; set; } = false;
 
         [Description("If all Doors should be locked")]
         public bool LockAllDoors { get; set; } = false;
