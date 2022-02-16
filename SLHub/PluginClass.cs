@@ -1,12 +1,12 @@
-﻿using Synapse.Api.Plugin;
-using Synapse.Config;
-using Synapse;
-using System.IO;
-using SLHub.Addons;
-using SLHub.ServerTeleporter;
+﻿using SLHub.Addons;
 using SLHub.Interactable;
-using SLHub.Teleporter;
 using SLHub.MessageDummy;
+using SLHub.ServerTeleporter;
+using SLHub.Teleporter;
+using Synapse;
+using Synapse.Api.Plugin;
+using Synapse.Config;
+using System.IO;
 
 namespace SLHub
 {
@@ -16,9 +16,9 @@ namespace SLHub
         Description = "A Plugin that allows to create a Hub Server in SL",
         LoadPriority = 0,
         SynapseMajor = 2,
-        SynapseMinor = 5,
-        SynapsePatch = 2,
-        Version = "v.1.0.0"
+        SynapseMinor = 9,
+        SynapsePatch = 0,
+        Version = "v.1.0.1"
         )]
     public class PluginClass : AbstractPlugin
     {

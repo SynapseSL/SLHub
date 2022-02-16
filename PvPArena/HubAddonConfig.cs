@@ -1,5 +1,6 @@
-﻿using Synapse.Config;
+﻿using MapGeneration;
 using SLHub.Teleporter;
+using Synapse.Config;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -8,9 +9,9 @@ namespace PvPArena
     public class HubAddonConfig : IConfigSection
     {
         [Description("A List of all Rooms in which Item Usage is allowed")]
-        public List<RoomInformation.RoomType> PvpRooms { get; set; } = new List<RoomInformation.RoomType>
+        public List<RoomName> PvpRooms { get; set; } = new List<RoomName>
         {
-            RoomInformation.RoomType.SURFACE
+            RoomName.Outside
         };
 
         [Description("A list of Dummies that gives the players a Item and then tp them")]
@@ -29,10 +30,7 @@ namespace PvPArena
                 Item = new SerializedItem
                 {
                     ID = (int)ItemType.Medkit,
-                    Barrel = 0,
                     Durabillity = 0,
-                    Other = 0,
-                    Sight = 0,
                     XSize = 1,
                     YSize = 1,
                     ZSize = 1,

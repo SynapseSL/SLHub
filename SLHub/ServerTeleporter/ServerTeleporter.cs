@@ -1,6 +1,6 @@
-﻿using Synapse.Api;
+﻿using SLHub.Interactable;
+using Synapse.Api;
 using UnityEngine;
-using SLHub.Interactable;
 
 namespace SLHub.ServerTeleporter
 {

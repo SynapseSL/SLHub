@@ -1,7 +1,7 @@
-﻿using System.ComponentModel;
+﻿using Synapse.Api.Enum;
 using Synapse.Config;
 using System.Collections.Generic;
-using Synapse.Api.Enum;
+using System.ComponentModel;
 
 namespace SLHub
 {

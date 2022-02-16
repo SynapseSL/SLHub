@@ -1,7 +1,7 @@
-﻿using System.ComponentModel;
-using Synapse.Config;
+﻿using Synapse.Config;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace SLHub.Teleporter
 {

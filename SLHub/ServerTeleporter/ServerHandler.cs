@@ -1,9 +1,9 @@
-﻿using Synapse;
+﻿using MEC;
+using Synapse;
 using Synapse.Api;
 using System.Collections.Generic;
-using System.Net.Http;
-using MEC;
 using System.Linq;
+using System.Net.Http;
 
 namespace SLHub.ServerTeleporter
 {
@@ -93,27 +93,6 @@ namespace SLHub.ServerTeleporter
                             server.Value.Player.DisplayInfo = server.Key.DisplayName + "\n" + responseserver.Players;
                         }
                         break;
-
-                    case Api.Anomalous:
-                        if (string.IsNullOrWhiteSpace(Config.Ip)) break;
-
-                        response = client.GetAsync("http://api.slservers.eu/game").Result;
-
-                        if (!response.IsSuccessStatusCode)
-                        {
-                            Logger.Get.Warn($"[SlHub] ErrorCode from AnomalousServer: {response.StatusCode}\n{response.Content.ReadAsStringAsync().Result}");
-                            break;
-                        }
-
-                        var anomalousresult = Newtonsoft.Json.JsonConvert.DeserializeObject<List<AnomalousServer>>(response.Content.ReadAsStringAsync().Result);
-
-                        foreach (var server in Servers)
-                        {
-                            var responseserver = anomalousresult.FirstOrDefault(x => x.Address == $"{Config.Ip}:{server.Key.Port}");
-                            if (responseserver == null) continue;
-                            server.Value.Player.DisplayInfo = server.Key.DisplayName + "\n" + $"{responseserver.Players}/{responseserver.MaxPlayers}";
-                        }
-                        break;
                 }
 
                 yield return Timing.WaitForSeconds(Config.Cooldown);
@@ -130,12 +109,5 @@ namespace SLHub.ServerTeleporter
             public ushort Port { get; set; }
             public string Players { get; set; }
         }
-    }
-
-    public class AnomalousServer
-    {
-        public string Address { get; set; }
-        public int Players { get; set; }
-        public int MaxPlayers { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace PvPArena
         private void Micro(Synapse.Api.Events.SynapseEventArguments.PlayerUseMicroEventArgs ev)
         {
             if (!Config.PvpRooms.Contains(ev.Player.Room.RoomType))
-                ev.State = MicroHID.MicroHidState.Idle;
+                ev.State = InventorySystem.Items.MicroHID.HidState.Idle;
         }
 
         private void Throw(Synapse.Api.Events.SynapseEventArguments.PlayerThrowGrenadeEventArgs ev)

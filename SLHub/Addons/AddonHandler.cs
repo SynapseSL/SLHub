@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using Synapse.Config;
-using System.IO;
-using System.Reflection;
-using System.Linq;
+﻿using Synapse.Config;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 
 namespace SLHub.Addons
 {

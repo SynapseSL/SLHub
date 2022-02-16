@@ -1,9 +1,8 @@
-﻿using Synapse;
+﻿using MEC;
+using Synapse;
 using Synapse.Api;
-using MEC;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace SLHub
 {

@@ -1,6 +1,4 @@
-﻿using Synapse.Config;
-
-namespace SLHub.Addons
+﻿namespace SLHub.Addons
 {
     public interface IHubAddon
     {

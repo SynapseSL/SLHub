@@ -1,8 +1,8 @@
 ﻿using SLHub.Interactable;
 using SLHub.Teleporter;
+using Synapse.Api;
 using Synapse.Config;
 using UnityEngine;
-using Synapse.Api;
 
 namespace PvPArena
 {

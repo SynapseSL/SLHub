@@ -1,7 +1,7 @@
-﻿using System.ComponentModel;
-using Synapse.Config;
+﻿using Synapse.Config;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace SLHub.ServerTeleporter
 {
@@ -58,9 +58,6 @@ namespace SLHub.ServerTeleporter
     {
         None,
         Northwood,
-        Anomalous,
         Custom,
-        //The new Synapse networking System
-        //Synapse,
     }
 }

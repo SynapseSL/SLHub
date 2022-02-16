@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using Synapse.Api;
+﻿using Synapse.Api;
+using UnityEngine;
 
 namespace SLHub.Interactable
 {

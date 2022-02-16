@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Synapse.Api;
 
 namespace SLHub.Interactable
 {
